@@ -1,0 +1,84 @@
+body#blocks-extsearch-search.blocks-extsearch .detailsline :link,
+body#blocks-extsearch-search.blocks-extsearch .detailsline :visited,
+body#blocks-extsearch-search.blocks-extsearch .detailsline {
+    color: green;
+}
+
+body#blocks-extsearch-search.blocks-extsearch .extraactions :link,
+body#blocks-extsearch-search.blocks-extsearch .extraactions :visited,
+body#blocks-extsearch-search.blocks-extsearch .extraactions {
+    color: gray;
+}
+
+.facets {
+    display: table-cell;
+    padding-right: 2em;
+    width: 15em;
+}
+
+.filters ul h4 {
+    display: inline;
+}
+
+.results {
+    padding-left: 2em;
+    display: table-cell;
+    width: 65em;
+}
+
+.facets {
+	float:left;
+    padding-right: 0em;
+	margin-right:2em;
+	width:180px;
+	background:#f1F1F1;
+}
+.facets h3 {
+	font-size: 1em;
+	margin-top:0;
+	text-transform: capitalize;
+	padding:5px;
+	border-bottom:1px solid #DDD;
+
+}
+.facets ul {
+	font-size:0.95em;
+
+}
+
+.facets {
+	float:left;
+    padding-right: 0em;
+	margin-right:2em;
+	width:180px;
+	background:#f1F1F1;
+}
+.facets h3 {
+	font-size: 1em;
+	margin-top:0;
+	text-transform: capitalize;
+	padding:5px;
+	border-bottom:1px solid #DDD;
+
+}
+.facets ul {
+	font-size:0.95em;
+
+}
+.results {
+	margin-left: 200px;
+
+}
+.results p {
+	padding: 0 0 5px;
+	border-bottom:1px dotted #DDD;
+}
+.paging {
+	text-align:center;
+	margin:20px 0 20px 0px;
+
+}
+#adminsettings .form-item .form-label .form-shortname {
+	font-size:0.8em;
+	color:#999999;
+}

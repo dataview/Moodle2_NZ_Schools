@@ -1,0 +1,63 @@
+2010-10-22 Friday 09:09  fmarier
+
+	* ChangeLog.txt, EDNA_Logo.gif, SearchEngine_edna.php,
+	block_extsearch.php, config_instance.html,
+	lang/en_utf8/block_extsearch.php,
+	lang/en_utf8/help/extsearch/querysyntax_edna.html:
+
+	blocks/extsearch: Adding EDNA search support
+
+	http://www.edna.edu.au/
+
+2010-10-22 Friday 09:07  fmarier
+
+	* ChangeLog.txt, SearchEngine.php, SearchEngine_digitalnz.php,
+	search.php, styles.php:
+
+	blocks/extsearch: Facet support for DigitalNZ
+
+2010-10-22 Friday 09:05  fmarier
+
+	* ChangeLog.txt, settings.php:
+
+	blocks/extsearch: Fix for Google API key containing dashes
+	(CONTRIB-1208)
+
+2010-10-22 Friday 09:03  fmarier
+
+	* ChangeLog.txt, block_extsearch.php, search.php:
+
+	blocks/extsearch: Fix for sticky blocks (CONTRIB-1223)
+
+2009-09-10 Thursday 11:01  fmarier
+
+	* ChangeLog.txt, SearchEngine.php:
+
+	Honour proxy settings as defined in Moodle
+
+2009-07-17 Friday 12:38  fmarier
+
+	* ChangeLog.txt, SearchEngine.php, SearchEngine_digitalnz.php,
+	block_extsearch.php:
+
+	blocks/extsearch: fixes from the Wellington Digital NZ Hackfest
+
+2009-05-01 Friday 12:51  fmarier
+
+	* ChangeLog.txt, search.php:
+
+	blocks/extsearch: Fix quoting problems with double-quotes in
+	queries
+
+2009-04-21 Tuesday 15:04  fmarier
+
+	* ChangeLog.txt, DNZ_Logo.gif, README.txt, SearchEngine.php,
+	SearchEngine_digitalnz.php, SearchEngine_esfs.php,
+	SearchEngine_google.php, block_extsearch.php, config_instance.html,
+	search.php, settings.php, styles.php,
+	lang/en_utf8/block_extsearch.php,
+	lang/en_utf8/help/extsearch/querysyntax_digitalnz.html,
+	lang/en_utf8/help/extsearch/querysyntax_esfs.html,
+	lang/en_utf8/help/extsearch/querysyntax_google.html:
+
+	Initial upload of the External Search block

@@ -1,0 +1,19 @@
+1.4 (2010-10-22)
+- Facet support for DigitalNZ
+- EDNA search plugin (http://www.edna.edu.au/)
+- Fix for sticky blocks (CONTRIB-1223)
+- Fix for Google API key containing dashes (CONTRIB-1208)
+
+1.3 (2009-09-10)
+- Honour proxy settings as defined in Moodle
+
+1.2 (2009-07-17)
+- Include block name and version in USER_AGENT
+- Use source_url instead of display_url in links href
+- Remove superfluous period in links
+
+1.1 (2009-05-01)
+- Fix quoting problem when search queries include double-quotes
+
+1.0 (2009-04-21)
+- Initial release

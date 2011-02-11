@@ -1,0 +1,205 @@
+/* CSS Button */
+
+.simplebutton {
+   background: url([[pix:format_simple|button-grad-dark]]) top left repeat-x;
+}
+.simplebackbutton {
+   float: left;
+   margin: 50px 5px 5px 25px;
+}
+
+.simpleforwardbutton {
+   float: right;
+   margin: 50px 25px 5px 5px;
+}
+
+.simpleforwardbutton-text {
+    margin: 22px 0px 10px 5px;
+    float: right;
+	width:38%;
+	text-align:right;
+
+}
+
+.simplebackbutton-text {
+    margin: 22px 5px 10px 0px;
+    float: left;
+	width:38%;
+}
+
+.simplebutton-title-left {
+    font-family:arial;
+    font-size:18px;
+    line-height:30px;
+    float: left;
+    background: url([[pix:format_simple|cap-left]]) left center no-repeat;
+    height: 31px;
+}
+
+.simplebutton-title-right {
+    font-family:arial;
+    font-size:18px;
+    line-height:30px;
+    float: left;
+    background: url([[pix:format_simple|cap-left]]) left center no-repeat;
+    height: 31px;
+}
+
+.simplebutton-title-left a {
+    background:transparent url([[pix:format_simple|arrow-right]]) no-repeat scroll right top;
+    display:block;
+    margin-right:7px;
+    padding:0 29px 0 10px;
+    background-position:center right;
+    text-decoration: none;
+}
+
+.simplebutton-title-right a {
+    background:transparent url([[pix:format_simple|arrow-left]]) no-repeat scroll right top;
+    display:block;
+    margin-left:7px;
+    padding:0 10px 0 29px;
+    background-position:center left;
+    text-decoration: none;
+}
+
+.simplebutton-title-left a:hover {
+    text-decoration: underline;
+    color: #fff;
+}
+
+.simplebutton-title-right a:hover {
+    text-decoration: underline;
+    color: #fff;
+}
+
+.simplebutton-right {
+    background: url([[pix:format_simple|cap-right]]) right center no-repeat;
+    height: 31px;
+    float: left;
+}
+
+.simplebutton-left {
+    background: url([[pix:format_simple|cap-right]]) right center no-repeat;
+    height: 31px;
+    float: left;
+}
+
+.arrow-left a, .arrow-right a {
+    text-decoration: none;
+}
+
+/* Color options - Text colour and background to follow theme */
+.simplebutton-title-left a, .simplebutton-title-right a, .simplearrow-left a, .simplearrow-right a{
+    color: #ffffff;
+}
+
+.simplebutton {
+    background-color: #666666;
+}
+
+/*Accessibility: No-tables course format. */
+#course-view ul.simplecss {
+  margin: 0;
+  padding: 0;
+  list-style: none;
+}
+/* Window-width: 800 pixels.
+   IE doesn't support, see inline IE conditional comment. */
+.simplecss-format {
+  min-width: 763px;
+}
+.simplecss-format .block_adminblock select,
+.simplecss-format .block_calendar_month .minicalendar {
+  width: 100%;
+  padding: 0;
+}
+.simplecss-format .block_calendar_month .minicalendar th,
+.simplecss-format .block_calendar_month .minicalendar td {
+  padding: 0.1em 0 0.1em 1px;
+}
+.simplecss-format #middle-column {
+  margin: 0 16em 0 16em;
+}
+/*.simplecss-format #left-column,
+.simplecss-format #right-column {
+  width: 15em;
+}
+.simplecss-format #left-column {
+  float: left;
+}
+.simplecss-format #right-column {
+  float: right;
+}*/
+.simplecss li.section {
+  margin-bottom: 0.5em;
+  border-style:solid;
+  border-width:1px;
+}
+.simplecss .content,
+.simplecss .side {
+  padding: 5px;
+}
+.simplecss .content {
+  margin: 0 1.7em 0 1.7em;
+}
+.simplecss .right {
+  width: 1.6em;
+  float: right;
+  text-align:center;
+}
+
+.simplecss .summary img {
+  padding: 10px;
+}
+.simplecss-format .summary {
+  margin-bottom: 20px;
+  overflow: auto;
+}
+
+
+/* Hack to fix peekaboo bug in ie6 */
+#wrapper {
+    _position: relative;
+}
+
+.course-content .simplecss-format {
+	min-width:200px;
+	border:1px solid #DDDDDD;
+
+}
+.course-content .simplecss-format ul.simplecss,
+.course-content .simplecss-format #middle-column,
+.course-content .simplecss-format ul.simplecss .section{
+		margin:0;
+}
+.course-content .simplecss-format ul.simplecss li {
+	list-style:none;
+}
+.course-content .simplecss-format .simplebackbutton {
+	margin: 20px 0 10px 10px;
+}
+.course-content .simplecss-format .simpleforwardbutton {
+	margin: 20px 10px 10px 0;
+}
+.course-content .simplecss-format .simplebutton-left,
+.course-content .simplecss-format .simplebutton-right {
+	height:20px;
+}
+.course-content .simplecss-format .simplebutton-title-left,
+.course-content .simplecss-format .simplebutton-title-right {
+	height:20px;
+	font-size: 12px;
+	font-weight:bold;
+	line-height:20px;
+}
+.course-content .simplecss-format .simplebutton-title-left a {
+	padding-right:17px;
+}
+.course-content .simplecss-format .simplebutton-title-right a {
+	padding-left:17px;
+}
+.course-content img.icon {
+	width:auto;
+	height:auto;
+}

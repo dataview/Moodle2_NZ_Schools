@@ -8,6 +8,10 @@
  *
  */
 
+
+if (false) $DB = new moodle_database();
+
+
 class moodlectl_plugin_base {
 
     /**

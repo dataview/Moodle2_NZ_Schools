@@ -8,6 +8,9 @@
  *
  */
 
+if (false) $DB = new moodle_database();
+
+
 require_once "$CFG->dirroot/local/moodlectl_utils.php";
 
 /**
@@ -323,5 +326,7 @@ class moodlectl_plugin_user extends moodlectl_plugin_base {
         return $users;
     }
 }
+//$DB->count_records($table, $conditions);
+//$DB->get_records($table, $conditions, $sort, $fields, $limitfrom, $limitnum);
 
 ?>

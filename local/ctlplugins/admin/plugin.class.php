@@ -7,6 +7,9 @@
  * @package local
  *
  */
+
+if (false) $DB = new moodle_database();
+
 /**
 * Extend the base plugin class
 * This class contains the actions for managing Moodle config values, either core or plugin

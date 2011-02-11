@@ -1,5 +1,7 @@
 <?php
 
+if (false) $DB = new moodle_database();
+
 /**
  * Rename a object's property if it exists.
  */

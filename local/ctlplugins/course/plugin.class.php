@@ -8,6 +8,8 @@
  *
  */
 
+if (false) $DB = new moodle_database();
+
 /**
 * Extend the base plugin class
 */

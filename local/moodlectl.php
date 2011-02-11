@@ -68,7 +68,7 @@ define('MOODLECTL_BASE', 'local');
 define('MOODLECTL_LANG', 'local');
 //mtrace($string, $eol="\n", $sleep=0)
 //========================================================================================//
-// BK: I added this as PHP 5.3 seems to require it:
+// PHP 5.3 seems to require it:
 define('CLI_SCRIPT', true);
 //add dirname to path for finding config.php
 require(dirname(__FILE__).'/../config.php');
@@ -669,7 +669,7 @@ function moodlectl_determine_mode($args) {
  * @return boolean true
  */
 function moodlectl_setup_env() {
-    global $CFG, $USER, $SESSION, $DB; // BK: added $DB object
+    global $CFG, $USER, $SESSION, $DB;
 
     include ("Console/Getopt.php");
     require_once($CFG->dirroot.'/'.MOODLECTL_BASE.'/moodlectl_plugin_base.class.php');

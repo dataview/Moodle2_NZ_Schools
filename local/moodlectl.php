@@ -58,9 +58,8 @@
  *                     // repeat for each action
  *                    );
  */
-// set error reporting for debugging
-error_reporting(E_ALL & ~E_NOTICE & ~E_DEPRECATED); // these error settings seem to make no difference, and neither do the cli/php.ini settings.. why?
-ini_set('display_errors', '1');
+
+// Added on bonsai
 
 // specifies which directory moodlectl lives in, in relation to dirroot
 define('MOODLECTL_BASE', 'local');

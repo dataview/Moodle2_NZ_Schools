@@ -60,6 +60,8 @@
  */
 
 // Added on bonsai
+// added on laptop
+
 
 // specifies which directory moodlectl lives in, in relation to dirroot
 define('MOODLECTL_BASE', 'local');

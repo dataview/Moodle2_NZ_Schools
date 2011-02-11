@@ -1,0 +1,1 @@
+a:4:{s:9:"course-id";i:1;s:4:"name";s:18:"The new wiki - php";s:7:"summary";s:18:"this is overriding";s:15:"separate-groups";b:0;}

@@ -1,0 +1,122 @@
+--- 
+- 
+  ? create-wiki
+  : 
+    ? course-id
+    : 1
+
+    ? name
+    : The new wiki - yaml - 1
+
+    ? summary
+    : Just a summary - longer text from yaml
+
+- 
+  ? create-wiki
+  : 
+    ? course-id
+    : 1
+
+    ? name
+    : The new wiki - yaml - 2
+
+    ? summary
+    : Just a summary - longer text from yaml
+
+- 
+  ? create-wiki
+  : 
+    ? course-id
+    : 1
+
+    ? name
+    : The new wiki - yaml - 3
+
+    ? summary
+    : Just a summary - longer text from yaml
+
+- 
+  ? create-wiki
+  : 
+    ? course-id
+    : 1
+
+    ? name
+    : The new wiki - yaml - 4
+
+    ? summary
+    : Just a summary - longer text from yaml
+
+- 
+  ? create-wiki
+  : 
+    ? course-id
+    : 1
+
+    ? name
+    : The new wiki - yaml - 5
+
+    ? summary
+    : Just a summary - longer text from yaml
+
+- 
+  ? create-wiki
+  : 
+    ? course-id
+    : 1
+
+    ? name
+    : The new wiki - yaml - 6
+
+    ? summary
+    : Just a summary - longer text from yaml
+
+- 
+  ? create-wiki
+  : 
+    ? course-id
+    : 1
+
+    ? name
+    : The new wiki - yaml - 7
+
+    ? summary
+    : Just a summary - longer text from yaml
+
+- 
+  ? create-wiki
+  : 
+    ? course-id
+    : 1
+
+    ? name
+    : The new wiki - yaml - 8
+
+    ? summary
+    : Just a summary - longer text from yaml
+
+- 
+  ? create-wiki
+  : 
+    ? course-id
+    : 1
+
+    ? name
+    : The new wiki - yaml - 9
+
+    ? summary
+    : Just a summary - longer text from yaml
+
+- 
+  ? create-wiki
+  : 
+    ? course-id
+    : 1
+
+    ? name
+    : The new wiki - yaml - 10
+
+    ? summary
+    : Just a summary - longer text from yaml
+
+

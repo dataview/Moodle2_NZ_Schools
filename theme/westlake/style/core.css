@@ -1,0 +1,1163 @@
+/* Global
+---------------------------*/
+
+body {
+    font-family: Calibri,Arial,sans-serif;
+    font-size: 0.85em;    
+	line-height: 1.3em;
+    color: #555;
+	margin:0;
+	padding:0;
+	background: url([[pix:theme|BGwall]]) repeat scroll center top #FFFFFF;
+}
+a {
+	color:#00522E;
+	text-decoration: none;	
+}
+a:hover {
+    color: #029f67;
+	text-decoration: underline;	
+}
+p, ul, ol, th, td {
+    color: #555;
+	line-height: 1.3em;	
+	border-color: #D3D3D3;
+}
+th, td {
+	padding:0.2em 0.3em	
+}
+hr {
+	color:#D3D3D3;
+	background-color:#D3D3D3;
+	height:1px;
+	border:none;
+	margin:0;
+	padding:0;
+}
+.clearer {
+	clear:both;
+	margin:0;
+	padding:0;
+}
+input, textarea, select {
+	margin-left: 0;
+	margin-right: 3px;
+
+}
+input[type=text] {
+	padding:2px;
+	margin-right: 3px;
+}
+input.text {
+	padding:2px;
+	margin-right: 3px;
+
+}
+.helplink img {
+	width:14px;
+	height:14px;
+}
+abbr, acronym {
+	border-color: #FFFFFF;	
+}
+#page {
+    background: url([[pix:theme|gradientBW]]) no-repeat center top transparent;
+}
+#page .page-effect {
+	width:960px;
+	margin:0 auto;	
+	padding:0 10px;
+}
+#wrapper {
+	background:#FFFFFF;
+    margin: 0 0 30px;
+    padding: 0;
+}
+h1,h2,h3,h4,h5,h6 {
+    color: #555;
+	font-family:"Arial Narrow",Helvetica,Calibri,Arial,sans-serif;	
+    font-weight: normal;
+}
+
+blockquote {
+    border-left:1px solid #eee;
+    padding-left:15px;
+    color:#555;
+}
+
+fieldset#general {
+    border-color: #eee;
+}
+
+fieldset#general legend {
+    color: #555;
+    font-weight: bold;
+    font-size: 1.2em;
+    border: 1px solid #eee;
+    padding: 2px 5px;
+    background: #fff;
+}
+#page-footer {
+    background: url([[pix:theme|bg-header]]) no-repeat left top transparent;
+	margin-top:10px;
+	padding-top:10px;
+	padding-bottom:10px;
+	color:#FFF;
+	border-top:1px solid #c7c7c7;
+}
+#page-footer a {
+	color:#CCC;
+}
+#page-footer .homelink a {
+	color:#00522E;
+    background: #FFF;
+    padding: 3px 10px;
+}
+#page-footer .logininfo,
+#page-footer .helplink,
+#page-footer .homelink {
+	font-size:1.1em;
+	margin:0.8em 0;
+}
+
+
+/* Layout
+----------------------------*/
+#page-content {
+	padding: 10px 0 0;
+}
+#page-content .region-content {
+	padding: 0;	
+}
+#page-content #region-main {
+    margin-left: 410px;
+}
+#page-content #region-main .region-content {
+	width: 96%;
+	padding:0 0 0 10px;
+}
+.content-only #page-content #region-main .region-content {
+	width:98%;	
+}
+#page-content #region-post-box {
+    margin-left: -410px;
+}
+.side-post-only #page-content #region-post-box {
+	margin-left: -210px;	
+}
+#page-content #region-pre {
+	width:201px;
+	left:209px;
+	margin-top:1px;
+	border-bottom:1px solid #CCC;
+}
+#page-content #region-post {
+	width:210px;
+	margin-top:1px;
+}
+.content-only #page-content #region-pre,
+.side-post-only #page-content #region-pre {
+	border:none;
+}
+.side-pre-only #page-content #region-main .region-content {
+	width:97.6%;
+}
+.side-post-only #page-content #region-main {
+	margin-left:210px;	
+}
+.side-post-only #page-content #region-main .region-content {
+	width:97%;	
+}
+.side-pre-only #page-content #region-main {
+	margin-left:200px;
+}
+
+/* Layout Frontpage
+----------------------------*/
+
+.pagelayout-mydashboard #page-content #region-pre,
+.pagelayout-frontpage #page-content #region-pre {
+	width:195px;
+}
+.pagelayout-mydashboard #page-content #region-post,
+.pagelayout-frontpage #page-content #region-post {
+	width:375px;
+	margin-left:-170px;
+}
+.pagelayout-mydashboard #page-content #region-main,
+.pagelayout-frontpage #page-content #region-main {
+	width:388px;
+	margin-left:401px;
+}
+.pagelayout-mydashboard #page-content #region-main {
+	width:370px;
+	margin-left:405px;	
+}
+.pagelayout-mydashboard.side-pre-only #page-content #region-main,
+.pagelayout-frontpage.side-pre-only #page-content #region-main {
+	width:80%;
+	margin-left:191px;	
+}
+.pagelayout-mydashboard.side-post-only #page-content #region-main,
+.pagelayout-frontpage.side-post-only #page-content #region-main {
+	width:60%;
+	margin-left:215px;	
+}
+.pagelayout-mydashboard.content-only #page-content #region-main,
+.pagelayout-frontpage.content-only #page-content #region-main {
+	width:100%;
+	margin-left:0px;	
+}
+
+/* Header
+----------------------------*/
+
+#header-left {
+    float: left;
+}
+.headermain,
+.headermenu {
+    margin: 0;
+}
+#headermenu {
+  float:right;
+  width:400px;
+  color:#FFF;  
+  margin-top: 0;
+  margin-right: 5px;
+  text-align: right;  
+}
+#headermenu a {
+	color:#FFF;	
+}
+#headermenu .logininfo {
+	float:right;
+	font-size:0.95em;
+}
+#headermenu .userpic {
+    background: url([[pix:theme|userpic]]) no-repeat scroll right top transparent;
+    float: right;
+    height: 80px;
+    padding-left: 10px;
+    text-align: center;
+    width: 80px;
+}
+#headermenu .userpic img {
+	border: 1px solid #FFF;
+    height: 68px;
+    width: 68px;
+}	
+#headermenu .langmenu {
+	clear:left;
+}
+#headermenu .langmenu select {
+	margin-top:13px;
+	font-size:0.95em;	
+}
+#page-header {
+    background: url([[pix:theme|bg-header]]) no-repeat left top transparent;
+}	
+#page-header .headertext {
+	float:left;
+	padding-top:40px;
+}
+#page-header h1 {
+    float: left;
+    margin: 10px;
+    color: #FFFFFF;
+	font-size:2em;
+	fonr-weight:bold;
+    padding-top: 25px;
+	line-height: 1.5em;	
+	text-shadow: 3px 5px 7px #000;		
+}
+#page-header h1.inside {
+    color: #555;
+    font-size: 2em;
+}
+#page-header #headermenu h1 {
+	float:none;	
+	padding-top:0;
+	margin-bottom:0;
+}
+#page-header #headermenu h2 {
+    color:#FFF;	
+	padding-right:10px;
+}
+#page-header p {
+    color:#FFF;
+}
+.school-logo {
+	float: left;
+}
+.school-logo img {
+	padding:5px 10px;
+	vertical-align: middle;
+}
+
+/* Navbar
+----------------------------*/
+
+.navbar,
+.blank {
+    background: #FFFFFF;
+    color: #555;
+	border-color: #FFFFFF;
+    border-style: solid;
+    border-width: 0;
+	height: 30px;
+    line-height: 20px;
+    margin: 0;	
+	width:auto;	
+}
+.navbar .nav-effect,
+.navbar.blank .nav-effect {
+	height: 40px;
+	background: transparent;
+	padding: 0 4px 0 10px;
+}
+.navbar .breadcrumb,
+.navbar.blank .breadcrumb {
+	margin: 7px 5px 0;
+}
+.navbar .breadcrumb,  .navbar .breadcrumb li {
+	color:#555555;
+}
+.navbar .breadcrumb a {
+	color:#333333;
+}
+.breadcrumb span.arrow {
+    color: #CCCCCC;
+    font-size: 8px;
+    vertical-align: middle;
+}
+.navbar .navbutton {
+	margin-top:3px;
+}
+.navbar.blank,
+body.path-login .navbar.blank  {
+	display:none;
+}
+.notloggedin .navbar.blank {
+	display:none;
+}
+
+/* Blocks
+----------------------------*/
+
+.block {
+	border:none;
+	padding:0 0 0 0;
+	margin:0 0 5px;
+	background:#075144 url([[pix:theme|sidebarLeft]]) repeat-x top left;
+}
+.block .header h2 {
+	color: #ffffff;
+	font-weight: normal;
+	font-size: 1.1em;
+	text-transform:uppercase;
+	background: #000000;
+	padding: 5px 10px 5px;
+	margin:0;
+	border-bottom:1px dotted #DDD;
+}
+.block .header .hide-show-image {
+	padding:3px 5px;	
+}
+.block .content {
+	border: none;
+	padding:3px 10px 5px;
+	color: #FFFFFF;
+	min-height:28px;
+}
+.block p, .block ul, .block ol, .block th, .block td {
+    color: #FFF;
+}
+.block .content a {
+	color: #FFFFFF;
+}
+.block .content hr {
+	color:#000;
+	background-color:#000;
+	height:1px;
+	border:none;
+	border-bottom:1px dotted #FFF;
+	margin:0;
+	padding:0;	
+}
+.block .header, .block h2.header {
+	border: none;
+	color: #FFFFFF;
+	padding: 0;
+}
+.block .content h2.main,
+.block .content h3.main{
+	font-size: 1em;
+	color:#ffffff;
+	padding:5px 0 5px;
+	margin:0;
+	border:none;	
+}
+.block .header .block_action {
+	margin:4px 2px;
+	padding:0;
+}
+.block .header .block_action img {
+	margin: 0 4px 0 0;
+	background:#CCC;
+}
+.block .header .commands {
+	padding:0 0 0 7px;
+	background:transparent;
+}
+.block .header .commands img {
+	margin:5px 4px 0;
+	padding:2px;
+	height: 12px;
+	width:12px;
+    background: #FFF;
+}
+.block .block_tree li p {
+    color: #FFFFFF;
+}
+.block .block_tree li {
+	padding:0;
+}
+.block_navigation .block_tree .tree_item {
+	margin:1px 0;	
+}
+.block_tree .collapsed .tree_item.branch {
+    background-image: url([[pix:theme|closed]]) !important;
+}
+.block_tree .tree_item.branch,
+.block_settings .block_tree .tree_item.branch,
+.block_navigation .block_tree .tree_item.branch {
+    background-image: url([[pix:theme|open]]);
+}
+.block_settings .block_tree li.item_with_icon > p img,
+.block_navigation .block_tree li.item_with_icon > p img  {
+	top:0;
+}
+.block .block_tree .current_branch {
+    font-weight: normal;
+}
+.block_settings .adminsearchform #adminsearchquery {
+	padding:2px;
+	width:100px;
+}
+.block .section_add_menus select {
+	width:150px;
+	margin-bottom:3px;
+}
+.block_html {
+	color:#333;
+	background:#cbfaf0;	
+}
+.block_html td {
+	color:#333;
+	padding:3px;
+	margin:0;
+	font-size:0.95em;
+}
+.block_html .content {
+	max-height: 350px;
+	overflow:auto;
+}
+.block_html .content p {
+	color:#333;	
+	margin:0 0 5px 0;
+	padding: 5px 10px;
+}
+.block_html .content li {
+	color:#333;		
+}
+.block_html .content table {
+	color:#333;
+	border-color: #cbfaf0;
+	background:#aaeddf;
+	margin:2px;
+}
+.block_html .content td p {
+	padding: 0;
+}
+.pagelayout-mydashboard #region-post .block_html .content {
+	max-height:350px;
+	overflow:auto;
+}
+.block_login {
+	border:none;
+	background:#EB3743 url([[pix:theme|sidebarRed]]) top left;
+}
+.block_login .header .h2 {
+	background: #000000;
+	color:#EB3743;
+	height:15px;
+}
+.block_login .content {
+	text-align:right;
+	margin-right:80px;
+	background:transparent;
+}
+.block_login .content .fld input {
+	width:150px;
+	padding:2px;
+	margin:5px 5px;
+}
+.block_course_list .footer {
+	color:#333;
+	text-align:center;	
+}
+#region-pre .block {
+	border:1px solid #CCC;
+	border-left:none;
+	border-bottom:none;
+	margin:0 0 -1px 0;
+	background: transparent url([[pix:theme|sidebarGrad]]) repeat-x bottom left;
+}
+#region-pre .block .content a,
+#region-pre .block .content p,
+#region-pre .block .content td,
+#region-pre .block .content th,
+#region-pre .block .content ul,
+#region-pre .block .content ol {
+	color: #333333;
+}
+#region-pre .block .header h2,
+#region-pre .block .content h2,
+#region-main .block .content h3{
+	color:#333333;
+	background: transparent;	
+}
+#region-post .block .header h2 {
+	border:none;	
+}
+#region-pre .block .header .commands img {
+	margin-bottom:0;	
+}
+#region-pre .block .no-overflow,
+#region-main .block .no-overflow {
+	padding:0;
+}
+#region-post .block .content {
+	background: transparent url([[pix:theme|sidebarCnr]]) no-repeat bottom left;	
+}
+#region-main .block {
+	border:0;
+	background: transparent;
+}
+#region-main .block h2 {
+	font-size:1.6em;
+	color:#06483C;
+	border:none;
+	background:transparent;
+	border-bottom:1px solid #06483C;
+	text-transform: none;
+    margin: 0;
+    padding: 6px 5px 6px 0;
+}
+#region-main .content {
+	padding:0;
+	margin:0 0 10px;
+}
+#region-main .content,
+#region-main .content p,
+#region-main .content th,
+#region-main .content td,
+#region-main .content li {
+	color:#555555;	
+}
+#region-main .block p {
+    padding: 5px 0 10px;
+}
+
+/* Calendar
+----------------------------*/
+.block_calendar_month,
+#page-calendar-view #region-post .block {
+	background:#EB3743 url([[pix:theme|sidebarRed]]) top left !important;
+}
+#page-calendar-view #region-post .minicalendarblock {
+	background:transparent !important;
+}
+.block_calendar_month .header h2 {
+	background: #000000;
+	color:#EB3743;
+}
+.block_calendar_month .calendar-controls {
+    background: transparent;
+    padding: 4px 3px 0;
+}
+.block .minicalendar {
+	border:none;
+	margin:4px auto;
+	background:transparent;
+}
+.block .minicalendar th, .block .minicalendar td {
+	font-size: 1em;	
+	color:#FFFFFF;
+	border:none;
+	padding:3px;
+	background:transparent;
+}
+.block .minicalendar td.today {
+    border: 1px solid #FFF;
+}
+.block .minicalendar td.weekend {
+    color: #FFFFFF;
+	background:#f05862;
+}
+.maincalendar {
+	border: 1px solid #D3D3D3;
+}
+.maincalendar  .header {
+    background: #EAEAEA;
+	padding: 5px;	
+}
+.maincalendar h1 {
+	margin:0;
+	padding:0;
+}
+.maincalendar .filters table {
+    margin: 0 auto;
+    width: 98%;
+}
+#page-calendar-view #region-post .minicalendarblock {
+	background:#EAEAEA;
+	margin:-4px;
+}
+#page-calendar-view #region-post .minicalendarblock h3 {
+	margin:0;
+	padding:0.7em 0 0;
+	text-align:center;
+	font-weight:normal;
+}
+#page-calendar-view #region-post .minicalendarblock .minicalendar {
+	width:96%;
+}
+#dockeditempanel .dockeditempanel_content p {
+	color:#00522E;	
+}
+#dockeditempanel .dockeditempanel_hd .commands {
+	float:right;
+	position:absolute;
+	top:4px;
+	right:5px;
+}
+#dockeditempanel .dockeditempanel_hd .commands img {
+	margin:0 2px;
+}
+#dockeditempanel .dockeditempanel_hd h2 {
+	font-size:1.1em !important;
+}
+#dockeditempanel .block_calendar_month,
+#dockeditempanel .block_calendar_month .content{
+	background: transparent !important;	
+}
+#dockeditempanel .minicalendar th, 
+#dockeditempanel .minicalendar td,
+body.path-course .minicalendar th, 
+body.path-course .minicalendar td {
+	border:none;
+	font-size: 0.9em;
+}
+#dockeditempanel .minicalendar td {
+	padding:1px;	
+}
+#dockeditempanel .minicalendar td.today {
+    border: 1px solid #00522E !important;
+}
+#dockeditempanel .calendar-controls {
+	text-align:center;
+}
+#dockeditempanel .calendar-controls .current {
+	margin:0 30px;
+	font-size: 0.9em;
+}
+
+/* Courses 
+----------------------------*/
+
+h2.main {
+	font-size:1.6em;
+	color:#06483C;
+	border:none;
+	border-bottom:1px solid #06483C;
+    margin: 0 0 1em;
+    padding: 6px 5px 6px 0;
+	background:transparent;
+}
+h2.headingblock {
+	font-size:2.2em;
+	font-weight: normal;
+	color:#FFFFFF;
+	max-width:730px;
+	border-color:#D3D3D3;
+    border-style: solid;
+    border-width: 0px;
+    margin: 0 0 1em -10px;
+    padding: 23px 16px;
+	-moz-border-radius-bottomright: 15px;	
+	background:#001D13 url([[pix:theme|title]]) no-repeat top right;
+}
+h2.main img {
+	padding: 0 5px 0 0;	
+}
+.coursebox {
+	width:99.5%;
+    border:1px solid #D3D3D3
+}
+
+.coursebox .info {
+    width: 35%;
+	padding:5px;
+}
+
+.coursebox .info .name,
+.coursebox .info h3 {
+    margin: 0;
+	padding:0;
+	font-size:1.2em;
+	font-weight:bold;
+}
+
+.coursebox .info .teachers {
+    font-size: 0.9em;
+    color: #888;
+}
+
+.coursebox .summary {
+    width: 63%;
+}
+
+.course-content .section.main {
+    border:none;
+	padding-bottom:2px;
+}
+
+.course-content .section.main .content {
+    padding: 5px 5px 10px;
+}
+
+.course-content .weeks .section.main .content,
+.course-content .topics .section.main .content {
+    margin-left: 0px;    
+	padding-left: 10px;
+	float:left;
+}
+.course-content .weeks .section.main .left,
+.course-content .topics .section.main .left {
+ 	width:20px;
+	padding:5px;
+	font-size:1.2em;
+	font-weight:bold;
+}
+.course-content .weeks .section.main .right,
+.course-content .topics .section.main .right {
+	padding:5px;
+	border:none;
+}
+.course-content ul.weeks li.section,
+.course-content ul.topics li.section {
+	margin:2px 0 4px;
+ 	border:1px solid #d5d5d5; 
+}
+.course-content .section.main.current {
+    background:#f0f0f0;
+}
+.course-content .weeks .section.main h3.weekdates,
+.course-content .topics .section.main h3.weekdates {
+    color: #666;
+}
+.course-content .section .activity img.activityicon {
+	margin-bottom:5px;
+}
+
+.course-content .current .left,
+.course-content .current h3.weekdates {
+    color: #555 !important;
+}
+.path-course-view .headingblock {
+	margin-bottom:1px;
+}
+.path-user .headingblock,
+.pagelayout-frontpage .headingblock {
+	display:none;
+}
+.categorylist .category {
+	margin:5px 0;
+}
+.course_category_tree div {
+	margin:3px 0;
+}
+.course_category_tree .category .category {
+	margin:3px;
+
+}
+.course_category_tree .category.with_children .subcategories .with_children .with_children,
+.course_category_tree .category.with_children .subcategories .with_children .with_children .with_children {
+	padding-left:29px;
+}
+.course_category_tree .subcategories .with_children .courses {
+	padding-left:54px;
+}
+.course_category_tree .category.with_children > .category_label,
+.jsenabled .course_category_tree .category.with_children.collapsed .category_label {
+	background-position: 0 6px;
+
+}
+.course_category_tree .subcategories .category.with_children > .category_label,
+.jsenabled .course_category_tree .subcategories .category.with_children.collapsed .category_label {
+	background-position: 23px 6px;
+
+}
+.course_category_tree .category_label {
+	font-size:1.1em;
+	font-weight:bold;
+}
+.course_category_tree .category .course_info .smallicon {
+	margin:0 0 0 7px;
+}
+.categorybox .categorylist .category .name {
+	font-size:0.9em;
+	font-weight:bold;
+}
+.categorylist .course {
+	padding-left:0px;
+	padding-bottom:25px;
+
+}
+.categorylist .indentation {
+	padding-left:30px;
+
+}
+.course_category_tree .subcategories .category_label {
+	padding-left:40px;
+
+}
+.course_category_tree .category .courses {
+	padding-left:26px;
+	margin:3px 0;
+}
+.course_category_tree .category_label a img,
+.course_category_tree .courses .course a img{
+	margin:0 5px -4px 5px;
+}
+.categorybox .categorylist .category img,
+.categorybox .categorylist .course a img {
+	margin:-7px 3px 0px 5px;
+}
+.categorybox .categorylist .course a img {
+	margin-bottom:-4px;
+}
+.categorybox .categorylist .course .name {
+	margin:5px 0;
+}
+.categorybox .categorylist .course .smallicon {
+	margin: 0 3px
+
+}
+.course_category_tree .controls {
+	font-size:0.85em;
+	font-weight:bold;
+	color:#0066CC;
+	margin: 12px 0 0 0;
+	padding-left:15px;
+}
+.course_category_tree .controls div {
+		margin:0;
+}
+.course_category_tree .controls div.expandall {
+	padding: 0 10px 0 0;
+	border-right:1px solid #777;
+
+}
+.course_category_tree .controls div.collapseall {
+	padding: 0 0 0 10px;
+}
+.categorypicker {
+	margin-bottom:10px;
+
+}
+.path-my .coursebox .overview {
+	padding: 0 0 0 13px;
+
+}
+.path-my .coursebox .overview .info {
+	padding: 0 0 0 35px;
+}
+.path-grade-report-grader h1 {
+	clear:none;	
+}
+.path-grade-report-grader #page-content h1 {
+	clear:both;	
+}
+
+/* Icons */
+.course_category_tree .category .courses .course_link {background-image:none;}
+
+
+/* Forum 
+--------------------------*/
+
+.forumpost .topic {
+	background:transparent;
+	color:#FFFFFF;
+    border-width: 0;
+    padding: 0;
+}
+.forumpost .topic a {
+	color:#999999;
+}
+.forumpost .subject {
+    font-size: 1.25em;
+	padding: 6px 10px;
+    background: url([[pix:theme|sidebarRed]]) repeat bottom left;	
+}
+
+.forumpost .author {
+    font-size: 0.9em;
+    font-style: italic;
+	color: #777777;
+	padding: 3px 10px;	
+	border-left: 1px solid #ccc;
+	border-right: 1px solid #ccc;	
+}
+
+.forumpost .no-overflow {
+	border-width:0 1px 1px;	
+    border-style: solid;
+    border-color: #aaa #CCC #CCC;
+    margin: 0 0 5px;
+}
+
+.forumpost .content .posting {
+    padding: 5px 10px 10px;
+}
+
+/* Dock 
+--------------------------*/
+
+#dock {
+    background: #eee;
+    border: none;
+}
+
+#dock .firstdockitem {
+    margin-top: 15px;
+}
+
+#dock .dockeditem {
+    background-color: #fff;
+    border: 1px solid #D3D3D3;
+    border-width: 0 1px 1px 0;
+    padding: 3px 0;
+}
+
+#dock .dockeditem .dockedtitle {
+    border: none;
+}
+#dock .dockeditem .dockedtitle h2 {
+    margin: 12px 0 12px 7px;
+    color: #555;
+}
+#dockeditempanel {
+	width:220px;
+}
+#dockeditempanel .dockeditempanel_content {
+    border-color: #D3D3D3;
+}
+
+#dockeditempanel .dockeditempanel_hd {
+    border-bottom: none;
+    padding: 3px 5px;
+    background: #eee;
+    text-align: left;
+}
+
+#dockeditempanel .dockeditempanel_hd h2 {
+    color: #333;
+    text-align: right;
+    font-weight: normal;
+    font-size: 0.8em;
+    padding: 0 2px;
+}
+
+#dockeditempanel .dockeditempanel_hd .commands {
+    float: right;
+}
+
+/* Custom Menu
+----------------------------*/
+
+#dropdownmenu {
+	background:transparent;
+}
+
+.has-custom-menu #dock .firstdockitem {
+    margin-top:30px;
+}
+#custommenu {
+	padding-top:4px;
+	padding-bottom:4px;
+}
+#custommenu .yui3-menu-horizontal,
+#custommenu .yui3-menu-horizontal.javascript-disabled {
+    padding-left:5px;
+    border:none;
+}
+.yui3-skin-sam .yui3-menu-horizontal .yui3-menu-label,
+.yui3-skin-sam .yui3-menu-horizontal .yui3-menu-content {
+	background:transparent !important;	
+}
+.has-custom-menu #wrapper,
+#custommenu .yui3-menu-horizontal .yui3-menu-content,
+#custommenu .yui3-menu-horizontal.javascript-disabled .yui3-menu-content,
+#custommenu .yui3-menu-horizontal .yui3-menu-content ul,
+#custommenu .yui3-menu-horizontal.javascript-disabled .yui3-menu-content ul,
+#custommenu .yui3-menu-horizontal.javascript-disabled .yui3-menu-content li li:hover > a {
+    border-width:0;
+}
+
+#custommenu .yui3-menu-horizontal .yui3-menu-content ul ul,
+#custommenu .yui3-menu-horizontal.javascript-disabled .yui3-menu-content ul ul {
+	min-width:100px;
+	margin-top:-3px;	
+	-moz-border-radius:0 0 3px 3px;
+    border:none;
+	background: url([[pix:theme|navitem]]) repeat-x 20px 50% !important;	
+}
+
+#custommenu .yui3-menu-horizontal .yui3-menu-content li a {
+    display:block;
+    height:24px;
+    vertical-align: bottom;
+    padding:10px 10px 3px;
+    cursor:pointer;	
+}
+
+#custommenu .yui3-menu-horizontal .yui3-menu-content li a:hover {
+	background:#F7001A !important;	
+	-moz-border-radius:5px;		
+}
+#custommenu .yui3-menu-horizontal .yui3-menu-content .yui3-menu-label-active,
+#custommenu .yui3-menu-horizontal .yui3-menu-content .yui3-menu-label-menuvisible {
+	-moz-border-radius:5px;
+	background:#F7001A !important;	
+}
+#custommenu .yui3-menu-horizontal .yui3-menu-content ul ul li a:hover,
+#custommenu .yui3-menu-horizontal .yui3-menu-content ul ul ul li a:hover {
+	-moz-border-radius:0 !important;	
+}
+#custommenu .yui3-menu-label-active .yui3-menu-label,
+#custommenu .yui3-menu-label-menuvisible .yui3-menu-label {
+	background: url([[pix:theme|navitem]]) repeat-x 20px 50% !important;	
+}
+#custommenu .yui3-menu-horizontal.javascript-disabled .yui3-menu-content li:hover > a {
+    border:none;
+    padding:5px 9px 0 9px;
+}
+
+#custommenu .yui3-menu-horizontal .yui3-menu-content ul ul li {
+	-moz-border-radius:0 0 3px 3px;
+}
+
+#custommenu .yui3-menu-horizontal .yui3-menu-content ul ul li a {
+	padding:8px 10px 0 10px;
+	background: url([[pix:theme|navitem]]) repeat-x 20px 50%;	
+}
+
+.yui3-skin-sam #custommenu .yui3-menu-label,
+.yui3-skin-sam #custommenu .yui3-menu .yui3-menu .yui3-menu-label,
+.yui3-skin-sam #custommenu  .yui3-menuitem-content,
+.yui3-skin-sam #custommenu .yui3-menu .yui3-menu .yui3-menuitem-content {
+    font-size:1.4em;
+	color:#FFFFFF;
+    border-width:0;
+    padding-right: 25px;
+}
+
+.yui3-skin-sam #custommenu .yui3-menu-content,
+.yui3-skin-sam #custommenu .yui3-menu .yui3-menu .yui3-menu-content {
+    padding:0;
+}
+
+/* General
+--------------------*/
+.skip-block-to {
+	height:0;
+}
+.notifysuccess {
+	text-align:center;
+	padding: 15px 0;	
+}
+.userprofile .profilepicture {
+	margin-right:5px;	
+}
+.generalbox,
+.mform fieldset,
+fieldset#general,
+.mform fieldset legend,
+fieldset#general legend {
+	border: 1px solid #D3D3D3;
+	padding:5px;
+	margin: 0 auto 10px;
+}
+#intro.generalbox {
+	font-weight:bold;
+}
+
+#page-mod-forum-post,
+#page-mod-forum-post #page{
+	color:#333;
+	padding:20px;
+	background:transparent;	
+}
+.forumpost {
+	margin-bottom:0.1em;
+}
+.forumpost .options {
+	font-size:0.85em;
+}
+.forumpost,
+.path-mod-forum .forumheaderlist,
+.path-mod-forum .forumheaderlist td {
+	border:none;	
+}
+.path-mod-forum .forumheaderlist .r0 {
+	background:#f3f3f3;	
+}
+.forumpost .row .left {
+	display:none;	
+}
+.forumpost .row .topic, 
+.forumpost .row .content-mask, 
+.forumpost .row .options {
+    margin-left: 0;
+}
+.region-content .forumaddnew {
+	text-align:right;
+	margin-bottom:5px;
+}
+/* Login
+------------------*/
+
+.loginbox {
+    border: 1px solid;
+    margin: 0 0 25px 25%;
+    margin-left: 25%;
+    overflow: hidden;
+    width: 50%;
+}
+.loginbox h2 {
+	font-size: 1.4em;
+}
+.loginbox .guestsub, .loginbox .forgotsub {
+	border-top: 1px solid;
+    margin-bottom: 5px;
+    margin-left: 12%;
+    margin-right: 12%;
+}
+.loginbox .forgetpass {
+	margin-top:11px;
+	margin-left:-60px;
+}

@@ -1,0 +1,8 @@
+# Easy rebuild of all scorm activities
+#
+# This scripts downloads all scorm activities to a directory. Then someone
+# all of these zip files manually using Articulate. Finally this script is
+# run again to upload the new files.
+#
+# Useful when you need to use a newer version of Articulate with support for
+# Flash 10 for example.

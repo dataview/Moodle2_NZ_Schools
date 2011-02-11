@@ -1,0 +1,6 @@
+# Twitter-like posting to a forum
+#
+# An admin can use this script to automatically post new messages to a forum
+# (ID is hardcoded here).
+#
+# e.g. Nagios could send a notice like "Disk space low on servername"

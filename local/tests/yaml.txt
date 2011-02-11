@@ -1,0 +1,3 @@
+course-id: 1
+name: The new wiki - yaml
+summary: Just a summary - longer text from yaml

@@ -1,0 +1,6 @@
+# Backup a single course daily
+#
+# This script puts a notice on the front page (HTML resource, with front page
+# "topic section" turned on) an hour before the outage. Then it turns on
+# maintenance mode. Does the course backup, removes the HTML notice and turns
+# maintenance mode off.

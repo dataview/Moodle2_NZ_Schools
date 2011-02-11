@@ -1,0 +1,6 @@
+# Initialize a Moodle site with test users and courses
+#
+# This script creates users, courses, enrolments and activities to turn an
+# empty Moodle site into one which allows for proper testing.
+#
+# Useful for developers wanting to set something up quickly.

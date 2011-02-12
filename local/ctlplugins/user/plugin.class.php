@@ -7,9 +7,7 @@
  * @package local
  *
  */
-
 if (false) $DB = new moodle_database();
-
 
 require_once "$CFG->dirroot/local/moodlectl_utils.php";
 

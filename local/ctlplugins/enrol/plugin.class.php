@@ -186,7 +186,7 @@ class moodlectl_plugin_enrol extends moodlectl_plugin_base {
      * @return boolean - true success | false failure | or Exception()
      */
     static function enrol_user($options, $format, $unenrol=false, $rolename='') {
-
+		global $DB;
         $userparams = array('userid' => 'id', 'username' => 'username', 'emailaddress' => 'email');
         $user = find_matching_record('user', $userparams, $options);
         if (is_object($user) && get_class($user) == 'Exception') {
@@ -207,17 +207,17 @@ class moodlectl_plugin_enrol extends moodlectl_plugin_base {
             }
         }
         else {
-            $role = get_record('role', 'shortname', $rolename);
+            $role = $DB->get_record('role', array('shortname'=>$rolename));
         }
 
         $coursecontext = get_context_instance(CONTEXT_COURSE, $course->id);
         if (!$unenrol) {
-            if (!role_assign($role->id, $user->id, false, $coursecontext->id)) {
+			if (!role_assign($role->id, $user->id, $coursecontext->id)) {
                 return new Exception(get_string('enrolfailed', MOODLECTL_LANG, $action));
             }
         }
         else {
-            if (!role_unassign($role->id, $user->id, false, $coursecontext->id)) {
+            if (!role_unassign($role->id, $user->id, $coursecontext->id)) {
                 return new Exception(get_string('unenrolfailed', MOODLECTL_LANG, $action));
             }
         }

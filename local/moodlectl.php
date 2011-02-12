@@ -61,7 +61,9 @@
 
 // Added on bonsai
 // added on laptop
-
+// set error reporting for debugging
+error_reporting(E_ALL & ~E_NOTICE & ~E_DEPRECATED); // these error settings seem to make no difference, and neither do the cli/php.ini settings.. why?
+ini_set('display_errors', '1');
 
 // specifies which directory moodlectl lives in, in relation to dirroot
 define('MOODLECTL_BASE', 'local');
@@ -565,7 +567,7 @@ function moodlectl_execute($action, $plugins, $mode, $values, $style='single') {
     // lets do the bad ones first
     if ($result === false) {
         if ($mode) {
-         $result = new Exception(get_string('actionfailed', MOODLECTL_LANG));
+         $result = new Exception(get_string_manager()->get_string('actionfailed', MOODLECTL_LANG));
         }
         else {
             moodlectl_console_write('actionfailed');
@@ -670,7 +672,7 @@ function moodlectl_determine_mode($args) {
  * @return boolean true
  */
 function moodlectl_setup_env() {
-    global $CFG, $USER, $SESSION, $DB;
+    global $CFG, $USER, $SESSION;
 
     include ("Console/Getopt.php");
     require_once($CFG->dirroot.'/'.MOODLECTL_BASE.'/moodlectl_plugin_base.class.php');

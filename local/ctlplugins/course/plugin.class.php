@@ -351,17 +351,17 @@ class moodlectl_plugin_course extends moodlectl_plugin_base {
 * @return array list of all the course details | or Exception()
 * */
     static function show_course($id, $idnumber, $format) {
-        global $CFG;
+        global $CFG, $DB;
         if (empty($id) && empty($idnumber)) {
             return new Exception(get_string('argerror', MOODLECTL_LANG, 'id/idnumber'));
         }
         if (!empty($id)) {
-            if (! $course = get_record('course', 'id', $id)) {
+            if (! $course = $DB->get_record('course', array('id'=>$id))) {
                 return new Exception(get_string('coursenotexists', MOODLECTL_LANG, $id));
             }
         }
         else {
-            if (! $course = get_record('course', 'idnumber', $idnumber)) {
+            if (! $course = $DB->get_record('course', array('idnumber'=>$idnumber))) {
                 return new Exception(get_string('coursenotexists', MOODLECTL_LANG, $idnumber));
             }
         }
@@ -385,8 +385,8 @@ class moodlectl_plugin_course extends moodlectl_plugin_base {
 * @return array list of all the course details | or Exception()
 * */
     static function course_modules($id) {
-        global $CFG;
-        if (! $course = get_record('course', 'id', $id)) {
+        global $CFG, $DB;
+        if (! $course = $DB->get_record('course', array('id'=>$id))) {
             return new Exception(get_string('coursenotexists', MOODLECTL_LANG, $id));
         }
         $mods = get_course_mods($id);
@@ -396,7 +396,7 @@ class moodlectl_plugin_course extends moodlectl_plugin_base {
         if ($mods) {
             foreach ($mods as $k => $mod) {
                 unset($mod->visibleold);
-                $module = get_record($mod->modname, 'id', $mod->instance);
+                $module = $DB->get_record($mod->modname, array('id'=>$mod->instance));
                 if ($module) {
                     $mod->name = $module->name;
                     // sort out naming inconsistencies amoungst modules
@@ -431,20 +431,20 @@ class moodlectl_plugin_course extends moodlectl_plugin_base {
 * @return array list of all the course details | or Exception()
 * */
     static function participants($id, $group=NULL) {
-        global $CFG;
-        if (! $course = get_record('course', 'id', $id)) {
+        global $CFG, $DB;
+        if (! $course = $DB->get_record('course', array('id'=>$id))) {
             return new Exception(get_string('coursenotexists', MOODLECTL_LANG, $id));
         }
         $users = search_users($id, $group, '');
         if ($users) {
             foreach ($users as $k => $user) {
-                $user= get_record('user', 'id', $user->id);
+                $user= $DB->get_record('user', array('id'=>$user->id));
                 $user->firstaccess_fmt  = (0 == $user->firstaccess)  ? 'Never' : userdate($user->firstaccess);
                 $user->lastaccess_fmt   = (0 == $user->lastaccess)   ? 'Never' : userdate($user->lastaccess);
                 $user->lastlogin_fmt    = (0 == $user->lastlogin)    ? 'Never' : userdate($user->lastlogin);
                 $user->currentlogin_fmt = (0 == $user->currentlogin) ? 'Never' : userdate($user->currentlogin);
                 $user->timemodified_fmt = (0 == $user->timemodified) ? 'Never' : userdate($user->timemodified);
-                $countries = get_list_of_countries();
+                $countries = get_string_manager()->get_list_of_countries();
                 $user->country_fmt      = (isset($user->country) && isset($countries[$user->country])) ? $countries[$user->country] : $user->country;
                 $timezones = get_list_of_timezones();
                 $user->timezone_fmt     = (99 == $user->timezone) ? get_string('serverlocaltime') : $timezones[$user->timezone];
@@ -466,19 +466,19 @@ class moodlectl_plugin_course extends moodlectl_plugin_base {
 * @return array list of all the course details | or Exception()
 * */
     static function create_course($data, $format) {
-        global $CFG, $USER;
+        global $CFG, $USER, $DB;
         require_once($CFG->dirroot."/course/lib.php");
 
         // Extract the category id from the parameters
         if (!empty($data['categoryid'])){
-            if (!$category = get_record('course_categories', 'id', $data['categoryid'])) {
+            if (!$category = $DB->get_record('course_categories', array('id'=>$data['categoryid']))) {
                 return new Exception(get_string('courseinvalidcategory', MOODLECTL_LANG, 'id='.$data['categoryid']));
             }
             $data['category'] = $category->id;
             unset($data['categoryid']);
         }
         elseif (!empty($data['categoryname'])){
-            if (!$category = get_record('course_categories', 'name', $data['categoryname'])) {
+            if (!$category = $DB->get_record('course_categories', array('name'=>$data['categoryname']))) {
                 return new Exception(get_string('courseinvalidcategory', MOODLECTL_LANG, 'name='.$data['categoryname']));
             }
             $data['category'] = $category->id;
@@ -489,7 +489,7 @@ class moodlectl_plugin_course extends moodlectl_plugin_base {
         }
 
         // make sure that the shortname doesnt allready exist
-        if (get_record('course', 'shortname', $data['shortname'])) {
+        if ($DB->get_record('course', array('shortname'=>$data['shortname']))) {
             return new Exception(get_string('courseshortexists', MOODLECTL_LANG, $data['shortname']));
         }
 
@@ -712,16 +712,16 @@ class moodlectl_plugin_course extends moodlectl_plugin_base {
 * @return array list of all the course details | or Exception()
 * */
     static function change_course($data, $format) {
-        global $CFG, $USER;
+        global $CFG, $USER, $DB;
         require_once($CFG->dirroot."/course/lib.php");
         $data['id'] = $data['course-id'];
         // make sure that the course allready exist
-        if (!$course = get_record('course', 'id', $data['id'])) {
+        if (!$course = $DB->get_record('course', array('id'=>$data['id']))) {
             return new Exception(get_string('coursenotexists', MOODLECTL_LANG, $data['id']));
         }
 
         // make sure that the shortname doesnt allready exist
-        if ($data['shortname'] !== NULL && get_record('course', 'shortname', $data['shortname'])) {
+        if ($data['shortname'] !== NULL && $DB->get_record('course', array('shortname'=>$data['shortname']))) {
             return new Exception(get_string('courseshortexists', MOODLECTL_LANG, $data['shortname']));
         }
 
@@ -739,7 +739,8 @@ class moodlectl_plugin_course extends moodlectl_plugin_base {
         }
 
         // do the actual update
-        if (!$course = update_course((object)$data)) {
+        //if (!$course = update_course((object)$data)) {
+		if (!$course = $DB->update_record('course',(object)$data)) {
             return new Exception(get_string('courseupdatefailed', MOODLECTL_LANG));
         }
 
@@ -813,8 +814,8 @@ class moodlectl_plugin_course extends moodlectl_plugin_base {
 * @return boolean - true success | false failure | or Exception()
 * */
     static function delete_course($id) {
-        global $CFG;
-        if (! $course = get_record('course', 'id', $id)) {
+        global $CFG, $DB;
+        if (! $course = $DB->get_record('course', array('id'=>$id))) {
             return new Exception(get_string('coursenotexists', MOODLECTL_LANG, $id));
         }
         if (!$site = get_site()) {
@@ -825,14 +826,14 @@ class moodlectl_plugin_course extends moodlectl_plugin_base {
         }
         add_to_log(SITEID, "course", "delete", "view.php?id=$course->id", "$course->fullname (ID $course->id)");
         $result = delete_course($course, false);
-        fix_course_sortorder(); //update course count in catagories
+        fix_course_sortorder(); //update course count in categories
 
         return $result;
     }
 
     static function reset_course($options) {
-        global $CFG;
-        if (! $course = get_record('course', 'id', $options['course-id'])) {
+        global $CFG, $DB;
+        if (! $course = $DB->get_record('course', array('id'=>$options['course-id']))) {
             return new Exception(get_string('coursenotexists', MOODLECTL_LANG, $options['course-id']));
         }
         add_to_log($course->id, "course", "reset", "view.php?id=$course->id", "$course->fullname (ID $course->id)");
@@ -869,18 +870,19 @@ class moodlectl_plugin_course extends moodlectl_plugin_base {
 * @return array list of all the course category details | or Exception()
 * */
     static function create_category($data, $format) {
+		global $DB;
         $newcategory = new stdClass();
         $newcategory->name = $data['name'];
         $newcategory->description = $data['description'];
         $newcategory->parent = $data['parent']; // if $data->parent = 0, the new category will be a top-level category
         if ($newcategory->parent != 0) {
-            if (!$parent_cat = get_record('course_categories', 'id', $newcategory->parent)) {
+            if (!$parent_cat = $DB->get_record('course_categories', array('id'=>$newcategory->parent))) {
                 return new Exception(get_string('createcategoryparenterror', MOODLECTL_LANG, $newcategory->parent));
             }
         }
         // Create a new category.
         $newcategory->sortorder = 999;
-        if (!$newcategory->id = insert_record('course_categories', $newcategory)) {
+        if (!$newcategory->id = $DB->insert_record('course_categories', $newcategory)) {
             return new Exception(get_string('createcategoryerror', MOODLECTL_LANG, $newcategory->name));
         }
         $newcategory->context = get_context_instance(CONTEXT_COURSECAT, $newcategory->id);
@@ -897,13 +899,13 @@ class moodlectl_plugin_course extends moodlectl_plugin_base {
 * @return array list of all the course category details | or Exception()
 * */
     static function change_category($data, $format) {
-
+		global $DB;
         // Update an existing category.
         $newcategory = new stdClass();
         $newcategory->id = $data['categoryid'];
         if ($data['parent'] != 0) {
             $newcategory->parent = $data['parent'];
-            if (!$parent_cat = get_record('course_categories', 'id', $newcategory->parent)) {
+            if (!$parent_cat = $DB->get_record('course_categories', array('id'=>$newcategory->parent))) {
                 return new Exception(get_string('createcategoryparenterror', MOODLECTL_LANG, $newcategory->parent));
             }
         }
@@ -913,7 +915,7 @@ class moodlectl_plugin_course extends moodlectl_plugin_base {
         if ($data['description']) {
             $newcategory->description = $data['description'];
         }
-        if (!update_record('course_categories', $newcategory)) {
+        if (!$DB->update_record('course_categories', $newcategory)) {
             return new Exception(get_string('changecategoryparenterror', $newcategory->id));
         }
         fix_course_sortorder();
@@ -929,8 +931,8 @@ class moodlectl_plugin_course extends moodlectl_plugin_base {
 * @return array list of all the course category details | or Exception()
 * */
     static function show_category($id, $format) {
-
-        if (!$category = get_record('course_categories', 'id', $id)) {
+		global $DB;
+		if (!$category = $DB->get_record('course_categories', array('id'=>$id))) {		
             return false;
         }
         return (array)$category;
@@ -944,7 +946,8 @@ class moodlectl_plugin_course extends moodlectl_plugin_base {
 * @return array list of all the course categories | or Exception()
 * */
     static function list_categories($format) {
-        $categories = get_records('course_categories');
+		global $DB;
+        $categories = $DB->get_records('course_categories');
         
         foreach ($categories as $id => $category) {
             $categories[$id] = (array)$category;

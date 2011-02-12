@@ -526,9 +526,9 @@ class moodlectl_plugin_course extends moodlectl_plugin_base {
 * @return array list of all the course details | or Exception()
 * */
     static function course_from_backup($options, $format) {
-        global $CFG, $MOODLECTL_NO_KEY;
+        global $CFG, $MOODLECTL_NO_KEY, $DB;
 
-        if (! $course = get_record('course', 'id', $options['course-id'])) {
+        if (! $course = $DB->get_record('course', array('id'=>$options['course-id']))) {
             return new Exception(get_string('coursenotexists', MOODLECTL_LANG, $options['course-id']));
         }
         require_once($CFG->dirroot.'/backup/restorelib.php');
@@ -605,7 +605,7 @@ class moodlectl_plugin_course extends moodlectl_plugin_base {
     static function course_backup($options, $format) {
         global $CFG, $MOODLECTL_NO_KEY;
 
-        if (! $course = get_record('course', 'id', $options['course-id'])) {
+        if (! $course = $DB->get_record('course', array('id'=>$options['course-id']))) {
             return new Exception(get_string('coursenotexists', MOODLECTL_LANG, $options['course-id']));
         }
         require_once($CFG->dirroot.'/backup/lib.php');

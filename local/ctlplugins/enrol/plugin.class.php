@@ -221,6 +221,18 @@ class moodlectl_plugin_enrol extends moodlectl_plugin_base {
                 return new Exception(get_string('unenrolfailed', MOODLECTL_LANG, $action));
             }
         }
+		
+		# hackety hack, based on enrol/manual/manage.php code..
+		
+		if (!$enrol_manual = enrol_get_plugin('manual')) {
+			throw new coding_exception('Can not instantiate enrol_manual');
+		}
+		
+		$instance = $DB->get_record('enrol', array('courseid'=>$course->id, 'enrol'=>'manual'), '*', MUST_EXIST); //slightly modified to use courseid
+		$course = $DB->get_record('course', array('id'=>$instance->courseid), '*', MUST_EXIST);
+		$context = get_context_instance(CONTEXT_COURSE, $course->id, MUST_EXIST);
+		
+		$enrol_manual->enrol_user($instance, $user->id, $role->id);
     }
 
 

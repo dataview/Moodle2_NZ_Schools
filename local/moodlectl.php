@@ -59,10 +59,8 @@
  *                    );
  */
 
-// Added on bonsai
-// added on laptop
 // set error reporting for debugging
-error_reporting(E_ALL & ~E_NOTICE & ~E_DEPRECATED); // these error settings seem to make no difference, and neither do the cli/php.ini settings.. why?
+error_reporting(E_ALL & !E_NOTICE & ~E_DEPRECATED); 
 ini_set('display_errors', '1');
 
 // specifies which directory moodlectl lives in, in relation to dirroot
@@ -71,8 +69,10 @@ define('MOODLECTL_BASE', 'local');
 define('MOODLECTL_LANG', 'local');
 //mtrace($string, $eol="\n", $sleep=0)
 //========================================================================================//
-// PHP 5.3 seems to require it:
+
+// PHP 5.3 seems to require
 define('CLI_SCRIPT', true);
+
 //add dirname to path for finding config.php
 require(dirname(__FILE__).'/../config.php');
 

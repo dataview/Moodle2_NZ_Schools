@@ -7,6 +7,8 @@
  * @package local
  *
  */
+error_reporting(E_ALL & !E_NOTICE & ~E_DEPRECATED); // get rid of notices as these muck up the result
+ini_set('display_errors', '1');
 global $CFG;
 require_once($CFG->dirroot."/mod/scorm/lib.php");
 require_once($CFG->dirroot."/lib/grouplib.php");

@@ -200,6 +200,7 @@ class moodlectl_plugin_user extends moodlectl_plugin_base {
         }
 
         $usernew = (object)$data;
+		//var_dump($usernew);
         rename_object_property($usernew, 'userid', 'id');
         rename_object_property($usernew, 'emailaddress', 'email');
         $usernew->username = trim($usernew->username);

@@ -573,7 +573,8 @@ body.path-login .navbar.blank  {
 /* Calendar
 ----------------------------*/
 .block_calendar_month,
-#page-calendar-view #region-post .block {
+#page-calendar-view #region-post .block,
+#page-calendar-event #region-post .block {
 	background:#EB3743 url([[pix:theme|sidebarRed]]) top left !important;
 }
 #page-calendar-view #region-post .minicalendarblock {
@@ -587,6 +588,12 @@ body.path-login .navbar.blank  {
     background: transparent;
     padding: 4px 3px 0;
 }
+.calendar-event-panel div.eventcontent {
+	color:#333333!important;
+}
+.calendar-event-panel div.eventcontent a {
+	color:#00522E!important;
+}
 .block .minicalendar {
 	border:none;
 	margin:4px auto;
@@ -596,11 +603,21 @@ body.path-login .navbar.blank  {
 	font-size: 1em;	
 	color:#FFFFFF;
 	border:none;
-	padding:3px;
-	background:transparent;
+	padding:3px 0px;
 }
 .block .minicalendar td.today {
-    border: 1px solid #FFF;
+	border: 1px solid #333333;
+}
+.block .minicalendar td.hasevent {
+    color:#333333;
+}
+.block .minicalendar td.hasevent a {
+    color:#333333;
+}
+.path-calendar .maincalendar .eventlist .event {
+	width:98%;
+	margin:3px auto;
+	border:1px solid #D3D3D3;	
 }
 .block .minicalendar td.weekend {
     color: #FFFFFF;
@@ -620,6 +637,9 @@ body.path-login .navbar.blank  {
 .maincalendar .filters table {
     margin: 0 auto;
     width: 98%;
+}
+.maincalendar .filters table td.eventskey {
+	background:#f05862;	
 }
 #page-calendar-view #region-post .minicalendarblock {
 	background:#EAEAEA;
@@ -896,9 +916,9 @@ h2.main img {
 .course_category_tree .category .courses .course_link {background-image:none;}
 
 
-/* Forum 
---------------------------*/
+/* Forum
 
+--------------------------*/
 .forumpost .topic {
 	background:transparent;
 	color:#FFFFFF;
@@ -933,6 +953,27 @@ h2.main img {
 .forumpost .content .posting {
     padding: 5px 10px 10px;
 }
+.filemanager-container {
+	margin:6px 0 !important;	
+}
+.redirectmessage {
+	color:#333;
+	margin: 10px auto;
+	width:70%;
+	padding:15px;
+	background:#FFFFFF;
+}
+.continuebutton {
+	width:70px !important;
+	padding:5px 10px;
+	background:#FFFFFF;
+	margin:0 auto;
+	text-align:center;
+}
+#page-mod-forum-discuss .discussioncontrols {
+	margin:13px 0;	
+}
+
 
 /* Dock 
 --------------------------*/
@@ -1089,6 +1130,9 @@ h2.main img {
 .notifysuccess {
 	text-align:center;
 	padding: 15px 0;	
+}
+.notifytiny {
+	background:#FFFFFF;	
 }
 .userprofile .profilepicture {
 	margin-right:5px;	

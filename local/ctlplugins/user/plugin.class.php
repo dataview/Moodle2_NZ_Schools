@@ -200,6 +200,7 @@ class moodlectl_plugin_user extends moodlectl_plugin_base {
         }
 
         $usernew = (object)$data;
+		//var_dump($usernew);
         rename_object_property($usernew, 'userid', 'id');
         rename_object_property($usernew, 'emailaddress', 'email');
         $usernew->username = trim($usernew->username);
@@ -207,8 +208,14 @@ class moodlectl_plugin_user extends moodlectl_plugin_base {
         $usernew->mnethostid = $CFG->mnet_localhost_id;
         $usernew->confirmed  = 1;
         $usernew->password = hash_internal_user_password($usernew->password);
-        // $usernew = addslashes_object($usernew); // addslashes_object is no longer available - NOTE / TODO check if addslashes/ mysqlrealescape or such is done elsewhere on the object before insertion into db
-
+		
+        // $usernew = addslashes_object($usernew); // addslashes_object is no longer available - NOTE / TODO check if addslashes/ mysqlrealescapestring or such is done elsewhere on the object before insertion into db
+		
+		// get rid of NULL values in the object data, as they are not able to be inserted into the moodle2 db
+		foreach($usernew as $key => $value) {
+			if($value === NULL) $usernew->$key = ''; // replace NULL's with empty string
+		}
+		
         if (!$usernew->id = $DB->insert_record('user', $usernew)) {
             return new Exception('Error creating user record');
         }

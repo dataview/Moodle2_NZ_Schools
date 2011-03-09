@@ -59,20 +59,20 @@
  *                    );
  */
 
-// Added on bonsai
-// added on laptop
 // set error reporting for debugging
-error_reporting(E_ALL & ~E_NOTICE & ~E_DEPRECATED); // these error settings seem to make no difference, and neither do the cli/php.ini settings.. why?
+error_reporting(E_ALL & !E_NOTICE & ~E_DEPRECATED); 
 ini_set('display_errors', '1');
 
 // specifies which directory moodlectl lives in, in relation to dirroot
 define('MOODLECTL_BASE', 'local');
 // the language text group - often the same as above but not necessarily ...
-define('MOODLECTL_LANG', 'local');
+define('MOODLECTL_LANG', 'local_ctlplugins');
 //mtrace($string, $eol="\n", $sleep=0)
 //========================================================================================//
-// PHP 5.3 seems to require it:
+
+// PHP 5.3 seems to require
 define('CLI_SCRIPT', true);
+
 //add dirname to path for finding config.php
 require(dirname(__FILE__).'/../config.php');
 
@@ -179,6 +179,7 @@ else {
     // check for single Invalid action supplied
     if (!array_key_exists($action, $plugins)) {
         $text = get_string('invalidaction', MOODLECTL_LANG, $action)."\n".moodlectl_help_text($plugins);
+		//$text = get_string('invalidaction', 'local_ctlplugins', $action)."\n".moodlectl_help_text($plugins);
         moodlectl_console_write($text, false, false);
         exit(1);
     }
@@ -213,6 +214,9 @@ function moodlectl_get_plugins() {
 
     $plugins = array();
     $ctlplugins = get_list_of_plugins(MOODLECTL_BASE.'/ctlplugins');
+	
+	// hack: to hide the lang directory, as it seems to be needed in this location for the lang file to work: 'lang' is not a plugin directory, so hide it..
+	
     foreach ($ctlplugins as $ctlplugin) {
         if (!empty($CFG->{'moodlectl_plugin_hide_'.$ctlplugin})) {  // Not wanted
             continue;

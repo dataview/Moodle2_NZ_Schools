@@ -244,7 +244,7 @@ class moodlectl_plugin_enrol extends moodlectl_plugin_base {
      * @return boolean - true success | false failure | or Exception()
      */
     static function user_has_role($options, $rolename='') {
-
+		global $DB;
         $userparams = array('userid' => 'id', 'username' => 'username', 'emailaddress' => 'email');
         $user = find_matching_record('user', $userparams, $options);
         if (is_object($user) && get_class($user) == 'Exception') {
@@ -254,18 +254,19 @@ class moodlectl_plugin_enrol extends moodlectl_plugin_base {
         $courseparams = array('courseid' => 'id', 'coursename' => 'shortname');
         $course = find_matching_record('course', $courseparams, $options);
         if (is_object($course) && get_class($course) == 'Exception') {
-            return $course;
+			return $course;
         }
 
         if (empty($rolename)) {
             $roleparams = array('roleid' => 'id', 'rolename' => 'shortname');
             $role = find_matching_record('role', $roleparams, $options);
             if (is_object($role) && get_class($role) == 'Exception') {
-                return $role;
+				return $role;
             }
         }
         else {
-            $role = get_record('role', 'shortname', $rolename);
+            //$role = get_record('role', 'shortname', $rolename);
+			$role = $DB->get_record('role', array('shortname'=>$rolename));
         }
 
         $coursecontext = get_context_instance(CONTEXT_COURSE, $course->id);

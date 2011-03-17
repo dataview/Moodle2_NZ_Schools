@@ -695,7 +695,8 @@ class moodlectl_plugin_course extends moodlectl_plugin_base {
                 $course->timecreated_fmt = (0 == $course->timecreated)  ? 'Never' : userdate($course->timecreated);
                 $course->timemodified_fmt = (0 == $course->timemodified)  ? 'Never' : userdate($course->timemodified);
                 $course->url = $CFG->wwwroot.'/course/view.php?id='.$course->id;
-                $course->modules = moodlectl_plugin_course::course_modules($course->id);
+				// BK: the following is too much data for our purpose, so commented out
+                //$course->modules = moodlectl_plugin_course::course_modules($course->id);
                 $course->participants = moodlectl_plugin_course::participants($course->id);
             }
 	        $courses[$key] = (array)$course;

@@ -444,7 +444,6 @@ class moodlectl_plugin_course extends moodlectl_plugin_base {
 				$cleansed_user->id = $user->id;
 				$cleansed_user->username = $user->username;
 				$cleansed_user->idnumber = $user->idnumber;
-				$cleansed_user->idnumber = $user->idnumber;
 				$cleansed_user->firstname= $user->firstname;
 				$cleansed_user->lastname= $user->lastname;
 				$cleansed_user->email = $user->email;

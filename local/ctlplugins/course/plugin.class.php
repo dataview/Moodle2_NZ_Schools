@@ -439,20 +439,40 @@ class moodlectl_plugin_course extends moodlectl_plugin_base {
         if ($users) {
             foreach ($users as $k => $user) {
                 $user= $DB->get_record('user', array('id'=>$user->id));
-                $user->firstaccess_fmt  = (0 == $user->firstaccess)  ? 'Never' : userdate($user->firstaccess);
+				// bodge the data reduction
+                $cleansed_user = new stdClass; // keep what we want
+				$cleansed_user->id = $user->id;
+				$cleansed_user->username = $user->username;
+				$cleansed_user->idnumber = $user->idnumber;
+				$cleansed_user->idnumber = $user->idnumber;
+				$cleansed_user->firstname= $user->firstname;
+				$cleansed_user->lastname= $user->lastname;
+				$cleansed_user->email = $user->email;
+				/*
+				$user->firstaccess_fmt  = (0 == $user->firstaccess)  ? 'Never' : userdate($user->firstaccess);
                 $user->lastaccess_fmt   = (0 == $user->lastaccess)   ? 'Never' : userdate($user->lastaccess);
                 $user->lastlogin_fmt    = (0 == $user->lastlogin)    ? 'Never' : userdate($user->lastlogin);
                 $user->currentlogin_fmt = (0 == $user->currentlogin) ? 'Never' : userdate($user->currentlogin);
                 $user->timemodified_fmt = (0 == $user->timemodified) ? 'Never' : userdate($user->timemodified);
+				
                 $countries = get_string_manager()->get_list_of_countries();
                 $user->country_fmt      = (isset($user->country) && isset($countries[$user->country])) ? $countries[$user->country] : $user->country;
                 $timezones = get_list_of_timezones();
                 $user->timezone_fmt     = (99 == $user->timezone) ? get_string('serverlocaltime') : $timezones[$user->timezone];
+				
                 unset($user->password); // password hash
                 unset($user->secret); // one-time password reset string
                 unset($user->mnethostid);
-                $user->url = $CFG->wwwroot.'/user/view.php?id='.$user->id;
-                $users[$k] = (array)$user;
+				// unset some more:
+				unset($user->auth);
+				unset($user->confirmed);
+				unset($user->policyagreed);
+				unset($user->deleted);
+				unset($user->suspended);
+				*/
+                //$user->url = $CFG->wwwroot.'/user/view.php?id='.$user->id;
+                $users[$k] = (array)$cleansed_user;
+				//$users[$k] = (array)$user;
             }
         }
         return $users;
@@ -675,7 +695,9 @@ class moodlectl_plugin_course extends moodlectl_plugin_base {
     static function list_all_courses($format) {
         global $CFG, $DB;
 
-        $columns = '*';
+        //$columns = '*';
+		$columns = 'id, category, fullname, shortname, idnumber';
+		
         if ('opts' == $format) {
             $columns = 'id';
         }
@@ -691,12 +713,13 @@ class moodlectl_plugin_course extends moodlectl_plugin_base {
             }
             else {
                 unset($course->modinfo);
-                $course->startdate_fmt = (0 == $course->startdate)  ? 'Never' : userdate($course->startdate);
-                $course->timecreated_fmt = (0 == $course->timecreated)  ? 'Never' : userdate($course->timecreated);
-                $course->timemodified_fmt = (0 == $course->timemodified)  ? 'Never' : userdate($course->timemodified);
-                $course->url = $CFG->wwwroot.'/course/view.php?id='.$course->id;
+                //$course->startdate_fmt = (0 == $course->startdate)  ? 'Never' : userdate($course->startdate);
+                //$course->timecreated_fmt = (0 == $course->timecreated)  ? 'Never' : userdate($course->timecreated);
+                //$course->timemodified_fmt = (0 == $course->timemodified)  ? 'Never' : userdate($course->timemodified);
+                //$course->url = $CFG->wwwroot.'/course/view.php?id='.$course->id;
 				// BK: the following is too much data for our purpose, so commented out
                 //$course->modules = moodlectl_plugin_course::course_modules($course->id);
+				
                 $course->participants = moodlectl_plugin_course::participants($course->id);
             }
 	        $courses[$key] = (array)$course;

@@ -315,7 +315,8 @@ class moodlectl_plugin_user extends moodlectl_plugin_base {
     static function list_users($format) {
         global $CFG, $DB;
 
-        $columns = '*';
+        //$columns = '*';
+		$columns = 'id, username, idnumber, firstname, lastname, email';
         if ('opts' == $format) {
             $columns = 'id';
         }

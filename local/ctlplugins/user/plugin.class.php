@@ -270,7 +270,16 @@ class moodlectl_plugin_user extends moodlectl_plugin_base {
         if (is_object($user) && get_class($user) == 'Exception') {
             return $user;
         }
-
+		
+		$cleansed_user = new stdClass; // keep what we want
+		$cleansed_user->id = $user->id;
+		$cleansed_user->username = $user->username;
+		$cleansed_user->idnumber = $user->idnumber;
+		$cleansed_user->firstname= $user->firstname;
+		$cleansed_user->lastname= $user->lastname;
+		$cleansed_user->email = $user->email;
+		
+		/*
         // remove unwanted elements
         unset($user->password); // password hash
         unset($user->secret); // one-time password reset string
@@ -286,6 +295,8 @@ class moodlectl_plugin_user extends moodlectl_plugin_base {
         $timezones = get_list_of_timezones();
         $user->timezone_fmt     = (99 == $user->timezone) ? get_string('serverlocaltime') : $timezones[$user->timezone];
         return $user;
+		*/
+		return $cleansed_user;
     }
 
     /**

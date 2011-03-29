@@ -366,7 +366,16 @@ class moodlectl_plugin_course extends moodlectl_plugin_base {
             }
         }
         // remove unwanted elements
-        unset($course->modinfo);
+        //unset($course->modinfo);
+		
+		$cleansed_course = new stdClass; // keep what we want
+		$cleansed_course->id = $course->id;
+		$cleansed_course->idnumber = $course->idnumber;
+		$cleansed_course->fullname= $course->fullname;
+		$cleansed_course->shortname= $course->shortname;
+		$cleansed_course->category = $course->category;
+		$cleansed_course->participants = moodlectl_plugin_course::participants($course->id);
+		/*
         $course->startdate_fmt = (0 == $course->startdate)  ? 'Never' : userdate($course->startdate);
         $course->timecreated_fmt = (0 == $course->timecreated)  ? 'Never' : userdate($course->timecreated);
         $course->timemodified_fmt = (0 == $course->timemodified)  ? 'Never' : userdate($course->timemodified);
@@ -376,6 +385,8 @@ class moodlectl_plugin_course extends moodlectl_plugin_base {
             $course->participants = moodlectl_plugin_course::participants($course->id);
         }
         return $course;
+		*/
+		return $cleansed_course;
     }
 
 /**

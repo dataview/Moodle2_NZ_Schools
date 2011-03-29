@@ -179,7 +179,6 @@ else {
     // check for single Invalid action supplied
     if (!array_key_exists($action, $plugins)) {
         $text = get_string('invalidaction', MOODLECTL_LANG, $action)."\n".moodlectl_help_text($plugins);
-		//$text = get_string('invalidaction', 'local_ctlplugins', $action)."\n".moodlectl_help_text($plugins);
         moodlectl_console_write($text, false, false);
         exit(1);
     }
@@ -581,11 +580,12 @@ function moodlectl_execute($action, $plugins, $mode, $values, $style='single') {
 
     // reformat Exception so it can be serialised
     if (is_object($result) && get_class($result) == 'Exception') {
-        $exception = array('message' => $result->getMessage(),
-                           'code' => $result->getCode(),
-                           'file' => $result->getFile(),
-                           'line' => $result->getLine(),
-                           'trace' => $result->getTraceAsString());
+        $exception = array('message' => $result->getMessage()
+                           //'code' => $result->getCode(),
+                           //'file' => $result->getFile(),
+                           //'line' => $result->getLine()
+                           //'trace' => $result->getTraceAsString()
+						   );
         switch ($mode) {
             case 'yaml':
                 fwrite(STDOUT, syck_dump($exception)."\n");
@@ -608,7 +608,7 @@ function moodlectl_execute($action, $plugins, $mode, $values, $style='single') {
     if (is_array($result) || is_object($result)) {
         switch ($mode) {
             case 'yaml':
-                fwrite(STDOUT, syck_dump((array)$result)."\n");
+                fwrite(STDOUT, syck_dump((array)$result)."\n");	// the syck_dump don't work :(
             break;
             case 'json':
                 fwrite(STDOUT, json_encode($result)."\n");

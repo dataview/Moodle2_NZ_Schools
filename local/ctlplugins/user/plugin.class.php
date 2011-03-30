@@ -271,16 +271,26 @@ class moodlectl_plugin_user extends moodlectl_plugin_base {
             return $user;
         }
 		
-		$cleansed_user = new stdClass; // keep what we want
+		$cleansed_user = new stdClass; // $user has too much cruft - just keep what we want
+		// refactor this with array of attributes/fields to loop thru
 		$cleansed_user->id = $user->id;
+		$cleansed_user->auth = $user->auth;
 		$cleansed_user->username = $user->username;
 		$cleansed_user->idnumber = $user->idnumber;
 		$cleansed_user->firstname= $user->firstname;
 		$cleansed_user->lastname= $user->lastname;
 		$cleansed_user->email = $user->email;
+		$cleansed_user->city = $user->city;
+		$cleansed_user->country = $user->country;
+		$cleansed_user->phone1 = $user->phone1;
+		$cleansed_user->phone2 = $user->phone2;
+		$cleansed_user->institution = $user->institution;
+		$cleansed_user->confirmed = $user->confirmed;
+		$cleansed_user->deleted = $user->deleted;
+		$cleansed_user->suspended = $user->suspended;
 		
 		/*
-        // remove unwanted elements
+		// remove unwanted elements
         unset($user->password); // password hash
         unset($user->secret); // one-time password reset string
 

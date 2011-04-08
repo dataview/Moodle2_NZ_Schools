@@ -373,11 +373,9 @@ body.path-login .navbar.blank  {
 .block p, .block ul, .block ol, .block th, .block td {
     color: #FFF;
 }
-
-#region-post .block .content a {
+.block .content a {
 	color: #FFFFFF;
 }
-
 .block .content hr {
 	color:#000;
 	background-color:#000;
@@ -725,9 +723,8 @@ h2.main img {
 	padding: 0 5px 0 0;	
 }
 .coursebox {
-	width:97.5%;
-    border:1px solid #D3D3D3;
-    padding-left:2%;
+	width:99.5%;
+    border:1px solid #D3D3D3
 }
 
 .coursebox .info {

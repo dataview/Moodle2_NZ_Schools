@@ -130,7 +130,8 @@ if(!isset($saml_attributes[$pluginconfig->username])) {
 
 // check that there isn't anything nasty in the username
 $username = $saml_attributes[$pluginconfig->username][0];
-if ($username != clean_param($username, PARAM_TEXT)) {
+//echo 'username = '.$username;exit;
+/*if ($username != clean_param($username, PARAM_TEXT)) {
     error_log('auth_saml: auth failed due to illegal characters in username: '.$username);
     session_write_close();
     $USER = new object();
@@ -138,13 +139,13 @@ if ($username != clean_param($username, PARAM_TEXT)) {
     require_once('../../config.php');
     print_error('pluginauthfailedusername', 'auth_saml', '', clean_param($saml_attributes[$pluginconfig->username][0], PARAM_TEXT));
 }
-
+*/
 // just passes time as a password. User will never log in directly to moodle with this password anyway or so we hope?
-$username = auth_saml_addsingleslashes($saml_attributes[$pluginconfig->username][0]);
+//$username = auth_saml_addsingleslashes($saml_attributes[$pluginconfig->username][0]);
 
 // check if users are allowed to be created and if the user exists
 if (isset($pluginconfig->createusers)) {
-    if (!$pluginconfig->createusers && ! get_complete_user_data('username', $username)) {
+    if (!$pluginconfig->createusers && ! get_complete_user_data('idnumber', $username)) {
         session_write_close();
         $USER = new object();
         $USER->id = 0;
@@ -158,6 +159,7 @@ if (isset($pluginconfig->createusers)) {
 //error_log('auth_saml: saml attrs: '.var_export($saml_attributes, true));
 if (isset($pluginconfig->duallogin) && $pluginconfig->duallogin) {
     $USER = auth_saml_authenticate_user_login($username, time());
+    //var_dump($USER);exit;
 } 
 else {    
     $USER = authenticate_user_login($username, time());
@@ -228,7 +230,9 @@ function auth_saml_authenticate_user_login($username, $password) {
     // ensure that only saml auth module is chosen
     $authsenabled = get_enabled_auth_plugins();    
 
-    if ($user = get_complete_user_data('username', $username, $CFG->mnet_localhost_id)) {
+    //if ($user = get_complete_user_data('username', $username, $CFG->mnet_localhost_id)) {
+    if ($user = get_complete_user_data('idnumber', $username)) {
+    
         $auth = empty($user->auth) ? 'manual' : $user->auth;  // use manual if auth not set
         if (!empty($user->suspended)) {
             add_to_log(SITEID, 'login', 'error', 'index.php', $username);
@@ -253,7 +257,8 @@ function auth_saml_authenticate_user_login($username, $password) {
         $user = new object();
         $user->id = 0;     // User does not exist
     }
-
+//echo '<pre>';var_dump($user); echo '</pre>';exit;
+$username = $user->username;
     // hard code only saml module
     $auths = array('saml');
     foreach ($auths as $auth) {
